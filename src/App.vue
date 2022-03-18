@@ -12,19 +12,19 @@
       >
         <v-list-item link to="cnc">
           <v-list-item-icon>
-            <v-icon>mdi-folder</v-icon>
+            <v-img src="@/assets/cnc.png" aspect-ratio="2"></v-img>
           </v-list-item-icon>
-          <v-list-item-title>CNC</v-list-item-title>
+          <v-list-item-title>數控銑床</v-list-item-title>
         </v-list-item>
         <v-list-item link to="edm">
           <v-list-item-icon>
-            <v-icon>mdi-account-multiple</v-icon>
+            <v-img src="@/assets/edm.png" aspect-ratio="2"></v-img>
           </v-list-item-icon>
           <v-list-item-title>放電</v-list-item-title>
         </v-list-item>
         <v-list-item link to="/wedm">
           <v-list-item-icon>
-            <v-icon>mdi-star</v-icon>
+            <v-img src="@/assets/wedm.png" aspect-ratio="2"></v-img>
           </v-list-item-icon>
           <v-list-item-title>線切割</v-list-item-title>
         </v-list-item>
