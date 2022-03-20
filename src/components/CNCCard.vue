@@ -12,35 +12,29 @@
 
     <v-img
       height="180"
-      src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
+      :src="require('@/assets/vcenter-p76.png')"
     ></v-img>
 
-    <v-card-title>Cafe Badilico</v-card-title>
+    <v-card-title>台中精機</v-card-title>
 
     <v-card-text>
       <v-row
         align="center"
         class="mx-0"
       >
-        <v-rating
-          :value="4.5"
-          color="amber"
-          dense
-          half-increments
-          readonly
-          size="14"
-        ></v-rating>
-
+        <div class="green--text">
+          ONLINE
+        </div>
         <div class="grey--text ms-4">
-          4.5 (413)
+          192.168.10.12
         </div>
       </v-row>
 
       <div class="my-4 text-subtitle-1">
-        $ • Italian, Cafe
+        型號 • Vcenter-P76
       </div>
 
-      <div>for something description.</div>
+      <div>三軸滾柱線軌機種</div>
     </v-card-text>
 
     <v-divider class="mx-4"></v-divider>

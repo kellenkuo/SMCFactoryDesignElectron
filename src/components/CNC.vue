@@ -9,19 +9,20 @@
           <v-list-item three-line>
             <v-list-item-content>
               <div class="text-overline mb-4">
-                OVERLINE
+                CNC dashboard
               </div>
               <v-list-item-title class="text-h5 mb-1">
-                Headline 5
+                總機台數 <strong>3</strong>
               </v-list-item-title>
-              <v-list-item-subtitle>Greyhound divisely hello coldly fonwderfully</v-list-item-subtitle>
+              <v-alert
+                dense
+                text
+                type="success"
+                class="mt-2 mb-0"
+              >
+                在線機台數量 <strong>1</strong> / 3
+              </v-alert>
             </v-list-item-content>
-
-            <v-list-item-avatar
-              tile
-              size="80"
-              color="grey"
-            ></v-list-item-avatar>
           </v-list-item>
         </v-card>
       </v-col>
