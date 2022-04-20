@@ -170,7 +170,7 @@
 
 <script>
 export default {
-  name: "Delta",
+  name: "CNCDetailsVictor",
   data: () => ({
     active: "info",
     functions: {

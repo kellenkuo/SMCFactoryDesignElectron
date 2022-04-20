@@ -1,6 +1,6 @@
 <template>
   <v-card
-    :loading="true"
+    :loading="isLoading"
     class="mx-auto"
   >
     <template slot="progress">
@@ -10,31 +10,43 @@
       ></v-progress-linear>
     </template>
 
+    <v-list-item>
+      <v-list-item-content>
+        <div class="text-overline">
+          EDM
+        </div>
+      </v-list-item-content>
+    </v-list-item>
+
     <v-img
-      height="180"
-      :src="require('@/assets/vcenter-p76.png')"
+      contain
+      height="200"
+      :src="require('@/assets/excetek-ed30z.png')"
     ></v-img>
 
-    <v-card-title>台中精機</v-card-title>
+    <v-card-title>精呈科技</v-card-title>
 
     <v-card-text>
       <v-row
         align="center"
         class="mx-0"
       >
-        <div class="green--text">
+        <div class="green--text" v-if="isOnline">
           ONLINE
         </div>
+        <div class="red--text" v-else>
+          OFFLINE
+        </div>
         <div class="grey--text ms-4">
-          192.168.10.12
+          192.168.10.21
         </div>
       </v-row>
 
       <div class="my-4 text-subtitle-1">
-        型號 • Vcenter-P76
+        型號 • ED30Z
       </div>
 
-      <div>三軸滾柱線軌機種</div>
+      <div></div>
     </v-card-text>
 
     <v-divider class="mx-4"></v-divider>
@@ -44,7 +56,7 @@
       <v-btn
         color="deep-purple lighten-2"
         text
-        @click="$router.push({name: detailRouterName})"
+        disabled
       >
         操作
       </v-btn>
@@ -54,12 +66,13 @@
 
 <script>
 export default {
-  name: "CNCCard",
+  name: "CNCIntroExcetek",
   props: {
-    detailRouterName: String,
+    
   },
   data: () => ({
-    
+    isLoading: false,
+    isOnline: false,
   }),
   methods: {
 

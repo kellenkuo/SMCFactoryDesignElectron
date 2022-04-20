@@ -35,9 +35,7 @@
     >
       <v-row class="ml-11" v-scroll:#scroll-target="onScroll">
         <v-col cols="4">
-          <CNCCard
-            :detailRouterName="'details-cnc-delta'"
-          />
+          
         </v-col>
       </v-row>
     </v-container>
@@ -45,12 +43,11 @@
 </template>
 
 <script>
-import CNCCard from "@/components/CNCCard.vue";
 
 export default {
   name: "CNC",
   components: {
-    CNCCard
+    
   },
   data: () => ({
     offsetTop: 0,

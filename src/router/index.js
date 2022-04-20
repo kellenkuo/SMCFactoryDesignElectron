@@ -4,14 +4,14 @@ import Home from "../components/Home.vue";
 import CNC from "../components/CNC.vue";
 import EDM from "../components/EDM.vue";
 import WEDM from "../components/WEDM.vue";
-import Delta from "../components/machines/cnc/Delta.vue";
+import CNCDetailsVictor from "../components/machines/cnc/victor/Details.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    name: "Home",
+    name: "home",
     component: Home,
   },
   {
@@ -30,9 +30,9 @@ const routes = [
     component: WEDM,
   },
   {
-    path: "/details-cnc-delta",
-    name: "details-cnc-delta",
-    component: Delta,
+    path: "/cnc/details/victor",
+    name: "cnc-details-victor",
+    component: CNCDetailsVictor,
   },
 ];
 
