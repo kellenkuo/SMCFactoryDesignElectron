@@ -46,7 +46,7 @@
         型號 • AL 600SA
       </div>
 
-      <div></div>
+      <div>線切割放電加工機</div>
     </v-card-text>
 
     <v-divider class="mx-4"></v-divider>
@@ -65,6 +65,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "WEDMIntroAccuteX32",
   props: {
@@ -73,9 +75,42 @@ export default {
   data: () => ({
     isLoading: false,
     isOnline: false,
+    onlineDurationSeconds: 10,
+    data: null,
+    timer: null,
   }),
+  watch: {
+    data: function(val) {
+      let timestampMachine = Date.parse(val.timestamp);
+      let timestampUTC = Date.now();
+      let durationSeconds = Math.floor((timestampUTC - timestampMachine) / 1000);
+      if (durationSeconds - 28800 < this.onlineDurationSeconds)
+        this.isOnline = true;
+      else
+        this.isOnline = false;
+    }
+  },
   methods: {
-
+    get() {
+      axios.post('http://smccycu.cloud:30032/wedm-accutex-32/_search',{
+        sort: [
+          { timestamp: "desc" }
+        ],
+        size: 1
+      })
+      .then((res) => {
+        this.data = res.data.hits.hits[0]._source;
+      })
+      .catch((error) => { console.error(error) })
+    }
+  },
+  mounted() {
+    this.timer = setInterval(() => {
+      this.get();
+    }, 1000);
+  },
+  unmounted() {
+    clearInterval(this.timer);
   }
 };
 </script>

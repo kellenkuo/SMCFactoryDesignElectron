@@ -12,7 +12,7 @@
                 Dashboard
               </div>
               <v-list-item-title class="text-h5 mb-1">
-                總機台數 <strong>9</strong>
+                總機台數 <strong>10</strong>
               </v-list-item-title>
               <v-alert
                 dense
@@ -20,7 +20,7 @@
                 type="success"
                 class="mt-2 mb-0"
               >
-                在線機台數量 <strong>1</strong> / 9
+                在線機台數量 <strong>{{ onlineCount }}</strong> / 10
               </v-alert>
             </v-list-item-content>
           </v-list-item>
@@ -29,11 +29,10 @@
     </v-row>
 
     <v-container
-      id="scroll-target"
       style="max-height: 80%"
-      class="overflow-y-auto pl-0"
+      class="overflow-y-auto pl-0 pr-0"
     >
-      <v-row dense class="ml-11" v-scroll:#scroll-target="onScroll">
+      <v-row dense class="ml-11">
         <v-col cols="4">
           <CNCIntroYipc />
         </v-col>
@@ -48,10 +47,16 @@
         </v-col>
 
         <v-col cols="4">
-          <CNCIntroChmer />
+          <EDMIntroChmer />
         </v-col>
         <v-col cols="4">
-          <CNCIntroExcetek />
+          <EDMIntroExcetek />
+        </v-col>
+        <v-col cols="4">
+          <EDMIntroOscaredm />
+        </v-col>
+        <v-col cols="4">
+          <EDMIntroOctece />
         </v-col>
 
         <v-col cols="4">
@@ -74,8 +79,10 @@ import CNCIntroVictor from "@/components/machines/cnc/victor/Intro.vue";
 import CNCIntroFocasiki from "@/components/machines/cnc/focasiki/Intro.vue";
 import CNCIntroHartford from "@/components/machines/cnc/hartford/Intro.vue";
 
-import CNCIntroChmer from "@/components/machines/edm/chmer/Intro.vue";
-import CNCIntroExcetek from "@/components/machines/edm/excetek/Intro.vue";
+import EDMIntroChmer from "@/components/machines/edm/chmer/Intro.vue";
+import EDMIntroExcetek from "@/components/machines/edm/excetek/Intro.vue";
+import EDMIntroOscaredm from "@/components/machines/edm/oscaredm/Intro.vue";
+import EDMIntroOctece from "@/components/machines/edm/octece/Intro.vue";
 
 import WEDMIntroAccuteX30 from "@/components/machines/wedm/accuteX30/Intro.vue";
 import WEDMIntroAccuteX31 from "@/components/machines/wedm/accuteX31/Intro.vue";
@@ -88,19 +95,45 @@ export default {
     CNCIntroVictor,
     CNCIntroFocasiki,
     CNCIntroHartford,
-    CNCIntroChmer,
-    CNCIntroExcetek,
+    EDMIntroChmer,
+    EDMIntroExcetek,
+    EDMIntroOscaredm,
+    EDMIntroOctece,
     WEDMIntroAccuteX30,
     WEDMIntroAccuteX31,
     WEDMIntroAccuteX32,
   },
   data: () => ({
-    offsetTop: 0,
+    onlineYipc: 0,
+    onlineVictor: 0,
+    onlineFocasiki: 0,
+    onlineHartford: 0,
+    onlineChmer: 0,
+    onlineExcetek: 0,
+    onlineOscaredm: 0,
+    onlineOctece: 0,
+    onlineAccuteX30: 0,
+    onlineAccuteX31: 0,
+    onlineAccuteX32: 0,
   }),
+  computed: {
+    onlineCount() {
+      let count = this.onlineYipc
+        + this.onlineVictor
+        + this.onlineFocasiki
+        + this.onlineHartford
+        + this.onlineChmer
+        + this.onlineExcetek
+        + this.onlineOscaredm
+        + this.onlineOctece
+        + this.onlineAccuteX30
+        + this.onlineAccuteX31
+        + this.onlineAccuteX32;
+      return count;
+    }
+  },
   methods: {
-    onScroll (e) {
-      this.offsetTop = e.target.scrollTop
-    },
+    
   }
 };
 </script>

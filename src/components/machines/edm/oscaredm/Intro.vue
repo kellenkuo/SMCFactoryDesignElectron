@@ -13,7 +13,7 @@
     <v-list-item>
       <v-list-item-content>
         <div class="text-overline">
-          WEDM
+          EDM
         </div>
       </v-list-item-content>
     </v-list-item>
@@ -21,10 +21,10 @@
     <v-img
       contain
       height="200"
-      :src="require('@/assets/accutex-ap-6040a.png')"
+      :src="require('@/assets/oscaredm-ex550.png')"
     ></v-img>
 
-    <v-card-title>徠通科技</v-card-title>
+    <v-card-title>先捷實業</v-card-title>
 
     <v-card-text>
       <v-row
@@ -38,15 +38,15 @@
           OFFLINE
         </div>
         <div class="grey--text ms-4">
-          192.168.10.31
+          192.168.10.22
         </div>
       </v-row>
 
       <div class="my-4 text-subtitle-1">
-        型號 • AP 6040A
+        型號 • EX550
       </div>
 
-      <div>線切割放電加工機</div>
+      <div>雕模放電加工機</div>
     </v-card-text>
 
     <v-divider class="mx-4"></v-divider>
@@ -68,7 +68,7 @@
 import axios from "axios";
 
 export default {
-  name: "WEDMIntroAccuteX31",
+  name: "EDMIntroOscaredm",
   props: {
     
   },
@@ -92,7 +92,7 @@ export default {
   },
   methods: {
     get() {
-      axios.post('http://smccycu.cloud:30032/wedm-accutex-31/_search',{
+      axios.post('http://smccycu.cloud:30031/edm-oscaredm/_search',{
         sort: [
           { timestamp: "desc" }
         ],

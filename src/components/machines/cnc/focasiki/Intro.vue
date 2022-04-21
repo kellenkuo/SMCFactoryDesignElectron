@@ -46,7 +46,7 @@
         型號 • VMC 860
       </div>
 
-      <div>三軸滾柱線軌機種</div>
+      <div>Vertical Machining Center</div>
     </v-card-text>
 
     <v-divider class="mx-4"></v-divider>
@@ -65,6 +65,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "CNCIntroFocasiki",
   props: {
@@ -73,9 +75,31 @@ export default {
   data: () => ({
     isLoading: false,
     isOnline: false,
+    onlineDurationSeconds: 10,
+    data: null,
+    timer: null,
   }),
   methods: {
-
+    get() {
+      axios.post('http://smccycu.cloud:30030/cnc-focaseiki/_search',{
+        sort: [
+          { timestamp: "desc" }
+        ],
+        size: 1
+      })
+      .then((res) => {
+        this.data = res.data.hits.hits[0]._source;
+      })
+      .catch((error) => { console.error(error) })
+    }
+  },
+  mounted() {
+    this.timer = setInterval(() => {
+      this.get();
+    }, 1000);
+  },
+  unmounted() {
+    clearInterval(this.timer);
   }
 };
 </script>

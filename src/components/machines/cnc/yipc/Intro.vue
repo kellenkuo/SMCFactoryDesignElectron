@@ -46,7 +46,7 @@
         型號 • YTM 763
       </div>
 
-      <div>三軸滾柱線軌機種</div>
+      <div>立式加工中心機</div>
     </v-card-text>
 
     <v-divider class="mx-4"></v-divider>
